@@ -10,44 +10,4 @@
 5.	Поле success принимает значение true только если в массиве detectives есть элемент с firstName ="Sherlock"
 Остальными условиями для упрощения задачи можно пренебречь.
 
-Table 1 result.json
-{
-  "detectives": [
-    {
-      "MainId": 1,
-      "firstName": "Sherlock",
-      "lastName": "Homes",
-      "violinPlayer": true,
-      "categories": [
-        {
-          "CategoryID": 1,
-          "CategoryName": "extras1",
-          "extra": {
-            "extraArray": [
-              {"violin":1},
-              {"cap":2}
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "MainId": 3,
-      "firstName": "James",
-      "lastName": "Watson",
-      "violinPlayer": false,
-      "categories": [
-        {
-          "CategoryID": 2,
-          "CategoryName": "extras2",
-          "extra": null
-        }
-      ]
-    }
-  ],
-  "success": true
-}
-
-
-
-
+Файл result.json находится в папке с тестами
