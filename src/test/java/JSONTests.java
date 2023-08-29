@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.experimental.categories.Category;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,7 +14,7 @@ import java.nio.file.Paths;
 
 public class JSONTests {
     // P.S: Для корректной работы некторых тестов необходимо изменить сам json- файл, который лежит в этой же директории
-
+    // Для запуска позитивных тестов нужно запустить из корня папки "mvn test -Dpositive", для негативных аналогично
 
     // Загрузка JSON-файла
     private JSONObject loadJsonFile() throws IOException, JSONException {
@@ -21,8 +22,9 @@ public class JSONTests {
         return new JSONObject(content);
     }
 
-    // positive test
+
     @Test
+    @Category(PositiveTests.class)
     public void testDetectivesInRange() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
@@ -31,6 +33,7 @@ public class JSONTests {
 
     // negative test
     @Test
+    @Category(NegativeTests.class)
     public void testDetectivesIsOutOfRange() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
@@ -39,6 +42,7 @@ public class JSONTests {
 
     //positive test
     @Test
+    @Category(PositiveTests.class)
     public void testDetectiveMainIdInRange() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
@@ -51,6 +55,7 @@ public class JSONTests {
 
     //negative test
     @Test
+    @Category(NegativeTests.class)
     public void testDetectiveMainIdOutOfRange() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
@@ -63,6 +68,7 @@ public class JSONTests {
 
     //positive
     @Test
+    @Category(PositiveTests.class)
     public void testCategoryIDValuesValid() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
@@ -79,6 +85,7 @@ public class JSONTests {
 
     // negative
     @Test
+    @Category(NegativeTests.class)
     public void testCategoryIDValuesInvalid() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
@@ -92,8 +99,10 @@ public class JSONTests {
             }
         }
     }
+
     // positive test
     @Test
+    @Category(PositiveTests.class)
     public void testExtraArrayPresence() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
@@ -112,6 +121,7 @@ public class JSONTests {
     }
 
     @Test
+    @Category(PositiveTests.class)
     public void testSuccessValue() throws IOException, JSONException {
         JSONObject jsonObject = loadJsonFile();
         JSONArray detectivesArray = jsonObject.getJSONArray("detectives");
